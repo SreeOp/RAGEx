@@ -2,8 +2,6 @@ const { ActivityType } = require('discord.js');
 
 const statusMessages = [
   { name: "RAGEx", type: ActivityType.Playing },
-  { name: "Hynex", type: ActivityType.Watching },
-  { name: "Musics !", type: ActivityType.Listening },
   { name: "members...", type: ActivityType.Watching } // Placeholder for member count
 ];
 
