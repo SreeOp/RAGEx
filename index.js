@@ -1,15 +1,16 @@
+// Import the required modules and functions
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
 require('dotenv').config(); // Load environment variables
 
-// Import the setStatus function
+// Import the setStatus function, warScheduler, welcome function, cfxStatus function, and voiceLogger
 const setStatus = require('./functions/setStatus');
 const welcome = require('./functions/welcome');
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildVoiceStates] }); // Include GuildVoiceStates intent
 
 // Initialize commands collection
 client.commands = new Collection();
@@ -32,12 +33,13 @@ deployCommands().catch(console.error);
 // Ready event
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
+  
   // Set the bot's status
   setStatus(client);
-
+  
   // Initialize welcome message functionality
   welcome(client);
-  
+
 });
 
 // Interaction create event
