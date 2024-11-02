@@ -6,6 +6,7 @@ require('dotenv').config(); // Load environment variables
 
 // Import the setStatus function
 const setStatus = require('./functions/setStatus');
+const welcome = require('./functions/welcome');
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -33,6 +34,10 @@ client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
   // Set the bot's status
   setStatus(client);
+
+  // Initialize welcome message functionality
+  welcome(client);
+  
 });
 
 // Interaction create event
