@@ -9,7 +9,7 @@ module.exports = (client) => {
        
     const frame = canvas.createCanvas(2000, 932);
     const ctx = frame.getContext('2d');
-const bg = await canvas.loadImage('https://cdn.discordapp.com/attachments/1188478795850723479/1301911891743870976/ragex_bg.png?ex=6726dc2f&is=67258aaf&hm=2ab43c612c2f8519032265410f5aed3abef13d7b529316b990de0f84dfb79557&');
+const bg = await canvas.loadImage('https://i.ibb.co/VBqQ6qS/Screenshot-2024-06-28-004320.jpg');
 ctx.drawImage(bg, 0, 0, frame.width, frame.height);
 
       const username = member.user.username;
